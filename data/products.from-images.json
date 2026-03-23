@@ -1,0 +1,403 @@
+[
+  {
+    "category": "Candles",
+    "name": "WhatsApp Image 2026 03 12 At 5.41.41 AM",
+    "slug": "whatsapp-image-2026-03-12-at-541",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/candles/WhatsApp Image 2026-03-12 at 5.41.41 AM (1).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "WhatsApp Image 2026 03 12 At 5.41.41 AM",
+    "slug": "whatsapp-image-2026-03-12-at-541-2",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/candles/WhatsApp Image 2026-03-12 at 5.41.41 AM (2).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "WhatsApp Image 2026 03 12 At 5.41.41 AM",
+    "slug": "whatsapp-image-2026-03-12-at-541-3",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/candles/WhatsApp Image 2026-03-12 at 5.41.41 AM.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "WhatsApp Image 2026 03 12 At 5.41.42 AM",
+    "slug": "whatsapp-image-2026-03-12-at-541-4",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/candles/WhatsApp Image 2026-03-12 at 5.41.42 AM (1).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "WhatsApp Image 2026 03 12 At 5.41.42 AM",
+    "slug": "whatsapp-image-2026-03-12-at-541-5",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/candles/WhatsApp Image 2026-03-12 at 5.41.42 AM.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Amber",
+    "slug": "amber",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/Amber.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "ArabicWood",
+    "slug": "arabicwood",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/ArabicWood.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Bold",
+    "slug": "bold",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/Bold.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Dupe",
+    "slug": "dupe",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/Dupe.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Dupe2",
+    "slug": "dupe2",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/Dupe2.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Noire",
+    "slug": "noire",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/Noire.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Storm",
+    "slug": "storm",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/Storm.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.15 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.15 AM (1).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.15 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-2",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.15 AM (2).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.15 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-3",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.15 AM (3).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.15 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-4",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.15 AM.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.16 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-5",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.16 AM (1).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.16 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-6",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.16 AM (2).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.16 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-7",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.16 AM (3).jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "WhatsApp Image 2026 03 08 At 5.22.16 AM",
+    "slug": "whatsapp-image-2026-03-08-at-522-8",
+    "description": "TODO: add product description",
+    "primaryImage": "/products/men/WhatsApp Image 2026-03-08 at 5.22.16 AM.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  }
+  
+]

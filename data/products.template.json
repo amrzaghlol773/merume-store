@@ -1,0 +1,905 @@
+[
+  {
+    "category": "Candles",
+    "name": "Oud Air freshener",
+    "slug": "f-long-lasting",
+    "description": "Give your Room a special oud touch",
+    "primaryImage": "/products/candles/Oud Air freshener.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "250ml",
+        "price": 185,
+        "isDefault": true
+      },
+      {
+        "label": "500ml",
+        "price": 280,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "Home Scent Box ",
+    "slug": "home-scent-box",
+    "description": "Air freshener with Candle ",
+    "primaryImage": "/products/candles/Home Scent Box.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 0,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 0,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "Vanilla Candle",
+    "slug": "vanilla-candle",
+    "description": "Long lasting candle ",
+    "primaryImage": "/products/candles/Vanilla Candle.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 275,
+        "isDefault": true
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "Strawberry Candle ",
+    "slug": "strawberry-candle",
+    "description": "Make you Room uniqueness",
+    "primaryImage": "/products/candles/Strawberry Candle.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 255,
+        "isDefault": true
+      }
+    ]
+  },
+  {
+    "category": "Candles",
+    "name": "Solenna Air Freshener",
+    "slug": "solenna-air-freshener",
+    "description": "Soft and fresh scent that fills your space with comfort",
+    "primaryImage": "/products/candles/Solenna Air Freshener.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "250ml",
+        "price": 180,
+        "isDefault": true
+      },
+      {
+        "label": "500ml",
+        "price": 250,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Storm",
+    "slug": "storm",
+    "description": "Sandlwood scent with Saffron ",
+    "primaryImage": "/products/men/Storm.jpeg",
+    "galleryImages": ["/products/men/Storm2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "ArabicWood",
+    "slug": "arabicwood",
+    "description": "For Oud Lovers ",
+    "primaryImage": "/products/men/ArabicWood.jpeg",
+    "galleryImages": ["/products/men/ArabicWood2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 430,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 570,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Bold",
+    "slug": "bold",
+    "description": "excellent longevity",
+    "primaryImage": "/products/men/Bold.jpeg",
+    "galleryImages": ["/products/men/Bold2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Dupe",
+    "slug": "dupe",
+    "description": "Long lasting and high Concentration ",
+    "primaryImage": "/products/men/Dupe.jpeg",
+    "galleryImages": ["/products/men/Dupe1.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Dupe2",
+    "slug": "dupe2",
+    "description": "Long lasting and high Concentration",
+    "primaryImage": "/products/men/Dupe2.jpeg",
+    "galleryImages": ["/products/men/Dupe1.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Noire",
+    "slug": "noire",
+    "description": "to Wear Business Man Vibe ",
+    "primaryImage": "/products/men/Noire.jpeg",
+    "galleryImages": ["/products/men/Noire2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+ 
+  {
+    "category": "Men",
+    "name": "Amber",
+    "slug": "Amber",
+    "description": "Arabic scent with French Touch ",
+    "primaryImage": "/products/men/Amber.jpeg",
+    "galleryImages": ["/products/men/Amber2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Men",
+    "name": "Turath ",
+    "slug": "turath",
+    "description": "freshness and gourmand  ",
+    "primaryImage": "/products/women/Turath.jpeg",
+    "galleryImages": ["/products/women/Turatu2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  
+  {
+    "category": "Women",
+    "name": "Claire",
+    "slug": "claire",
+    "description": "Oud with woody Scent ",
+    "primaryImage": "/products/women/Claire.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 420,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 575,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Laverne Dupe",
+    "slug": "laverne-dupe",
+    "description": "The same of Miss Laverne",
+    "primaryImage": "/products/women/Laverne Dupe2.jpeg",
+    "galleryImages": [
+      "/products/women/Laverne Dupe.jpeg"
+    ],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Versace Dupe",
+    "slug": "versace-dupe",
+    "description": "Inspired By Versace Crystal Noire",
+    "primaryImage": "/products/women/Versace Dupe.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 475,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 600,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Yara Dupe ",
+    "slug": "yara-dupe",
+    "description": "Inspired By lattafa Yara ",
+    "primaryImage": "/products/women/Yara Dupe.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Vanilla ",
+    "slug": "vanilla",
+    "description": "Scent of Vanilla orchid and Brown Sugar",
+    "primaryImage": "/products/women/Vanilla .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Fleure ",
+    "slug": "fleure",
+    "description": "Floral and Feminine",
+    "primaryImage": "/products/women/Fleure .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Joli ",
+    "slug": "joli",
+    "description": "Chic and Elegant ",
+    "primaryImage": "/products/women/Joli.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 475,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 625,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Into the night Dupe",
+    "slug": "into-the-night-dupe",
+    "description": "So richy",
+    "primaryImage": "/products/women/DupeSorichy.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Cherries ",
+    "slug": "cherries",
+    "description": "Mixed Cherry ",
+    "primaryImage": "/products/women/Cherries .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Veloura ",
+    "slug": "Veloura ",
+    "description": "Soft and Feminine",
+    "primaryImage": "/products/women/Veloura .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Elegance",
+    "slug": "Elegance",
+    "description": "Inspired by Libre Intense",
+    "primaryImage": "/products/women/Elegance.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Jamila ",
+    "slug": "Jamila ",
+    "description": "Creamy Strawberry Delight",
+    "primaryImage": "/products/women/Jamila .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Turath",
+    "slug": "turath",
+    "description": "Radiant Glow ",
+    "primaryImage": "/products/women/Turath.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Cinnamon Bloom ",
+    "slug": "cinnamon-bloom",
+    "description": "So Unique scent",
+    "primaryImage": "/products/women/Cinnamon Bloom .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Valentino dupe",
+    "slug": "valentino-dupe",
+    "description": "Valentino dupe",
+    "primaryImage": "/products/women/Valentino dupe.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Dupe Narciso",
+    "slug": "dupe-narciso",
+    "description": "Inspired by Musc Noir Rose",
+    "primaryImage": "/products/women/Dupe Narciso.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 475,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 600,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Cherry blossom Dupe",
+    "slug": "cherry-blossom-dupe",
+    "description": "Inspired by body splash Bath & Body",
+    "primaryImage": "/products/women/Cherry blossom Dupe.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Dupe Kayali ",
+    "slug": "dupe-kayali",
+    "description": "Inspired by kayali lyche fresh Scent",
+    "primaryImage": "/products/women/Dupe Kayali.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Zead & Sohaila Card",
+    "slug": "zead-sohaila-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/2.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Ahmed & Maram Card",
+    "slug": "ahmed-maram-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/WhatsApp Image 2026-03-17 at 5.35.27 AM.jpeg",
+    "galleryImages": [
+      "/products/giveaways/3.jpeg"
+    ],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Two Hearts Invitation Card",
+    "slug": "two-hearts-invitation-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/6.jpeg",
+    "galleryImages": [
+      "/products/giveaways/7.jpeg"
+    ],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Mohamed & Rana Card",
+    "slug": "mohamed-rana-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/8.jpeg",
+    "galleryImages": [
+      "/products/giveaways/9.jpeg"
+    ],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Nelly Couture Card",
+    "slug": "nelly-couture-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/11.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Dr Nasser & Dr Alshymaa Card",
+    "slug": "dr-nasser-dr-alshymaa-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/WhatsApp Image 2026-03-17 at 5.35.26 AM.jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Giveaways",
+    "name": "Elegant Floral Card",
+    "slug": "elegant-floral-card",
+    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "primaryImage": "/products/giveaways/5.jpeg",
+    "galleryImages": [
+      "/products/giveaways/4.jpeg",
+      "/products/giveaways/WhatsApp Image 2026-03-17 at 5.46.27 AM.jpeg"
+    ],
+    "variants": [
+      {
+        "label": "10 Card",
+        "price": 450,
+        "isDefault": true
+      },
+      {
+        "label": "20 Card",
+        "price": 800,
+        "isDefault": false
+      },
+      {
+        "label": "35 Card",
+        "price": 1400,
+        "isDefault": false
+      },
+      {
+        "label": "50 Card",
+        "price": 1750,
+        "isDefault": false
+      },
+      {
+        "label": "100 Card",
+        "price": 2750,
+        "isDefault": false
+      },
+      {
+        "label": "200 Card",
+        "price": 5000,
+        "isDefault": false
+      }
+    ]
+  }
+]
