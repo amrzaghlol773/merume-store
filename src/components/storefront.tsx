@@ -917,15 +917,18 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
             </div>
           </div>
 
-          <div id="product-grid" className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            id="product-grid"
+            className="-mx-4 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-4"
+          >
             {productsLoading ? (
-              <p className="col-span-full rounded-xl border border-black/10 bg-white p-6 text-center text-charcoal/60">Loading products...</p>
+              <p className="w-full rounded-xl border border-black/10 bg-white p-6 text-center text-charcoal/60 sm:col-span-full">Loading products...</p>
             ) : null}
             {productsError ? (
-              <p className="col-span-full rounded-xl border border-red-300 bg-red-50 p-6 text-center text-red-700">{productsError}</p>
+              <p className="w-full rounded-xl border border-red-300 bg-red-50 p-6 text-center text-red-700 sm:col-span-full">{productsError}</p>
             ) : null}
             {!productsLoading && !productsError && !visibleProducts.length ? (
-              <p className="col-span-full rounded-xl border border-black/10 bg-white p-6 text-center text-charcoal/60">No products found in this category.</p>
+              <p className="w-full rounded-xl border border-black/10 bg-white p-6 text-center text-charcoal/60 sm:col-span-full">No products found in this category.</p>
             ) : null}
 
             {!productsLoading && !productsError
@@ -939,7 +942,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                   return (
                     <article
                       key={product.id}
-                      className="product-card"
+                      className="product-card min-w-[84%] snap-start sm:min-w-0"
                       role="button"
                       tabIndex={0}
                       onClick={() => openProductView(product)}

@@ -90,7 +90,16 @@ export default function AdminProductsPage() {
   const loadData = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/admin/products", { cache: "no-store" });
+      const response = await fetch("/api/admin/products", {
+        cache: "no-store",
+        credentials: "include",
+      });
+
+      if (response.status === 401) {
+        window.location.href = "/admin/login?next=/admin/products";
+        return;
+      }
+
       const json = (await response.json()) as {
         products?: AdminProduct[];
         categories?: Category[];
@@ -200,6 +209,7 @@ export default function AdminProductsPage() {
         isEdit ? `/api/admin/products/${editingId}` : "/api/admin/products",
         {
           method: isEdit ? "PATCH" : "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -235,6 +245,7 @@ export default function AdminProductsPage() {
     try {
       const response = await fetch(`/api/admin/products/${productId}`, {
         method: "DELETE",
+        credentials: "include",
       });
 
       const json = (await response.json()) as { error?: string };
@@ -273,6 +284,7 @@ export default function AdminProductsPage() {
         selectedProductIds.map((productId) =>
           fetch(`/api/admin/products/${productId}`, {
             method: "DELETE",
+            credentials: "include",
           }),
         ),
       );
