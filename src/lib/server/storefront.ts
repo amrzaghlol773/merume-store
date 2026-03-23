@@ -1,4 +1,6 @@
 import { OrderStatus, Prisma } from "@prisma/client";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
 import { prisma } from "@/lib/prisma";
 import { SHIPPING_RATES } from "@/lib/server/shipping";
@@ -60,6 +62,16 @@ type ProductWithPublicData = Prisma.ProductGetPayload<{
   include: typeof publicProductInclude;
 }>;
 
+type FallbackTemplateProduct = {
+  category: string;
+  name: string;
+  slug: string;
+  description: string;
+  primaryImage: string;
+  galleryImages?: string[];
+  variants?: Array<{ label: string; price: number; isDefault?: boolean }>;
+};
+
 export function normalizeGovernorateKey(rawValue: string) {
   return String(rawValue || "")
     .trim()
@@ -102,15 +114,72 @@ function productToPublic(product: ProductWithPublicData): PublicProduct {
   };
 }
 
-export async function getPublicProducts() {
-  const products = await prisma.product.findMany({
-    include: publicProductInclude,
-    orderBy: {
-      id: "asc",
-    },
+function wait(ms: number) {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, ms);
   });
+}
 
-  return products.map(productToPublic);
+async function loadFallbackProductsFromTemplate(): Promise<PublicProduct[]> {
+  const templatePath = path.join(process.cwd(), "data", "products.template.json");
+  const fileContent = await readFile(templatePath, "utf8");
+  const rows = JSON.parse(fileContent) as FallbackTemplateProduct[];
+
+  return rows.map((row, index) => {
+    const galleryImages = (row.galleryImages || []).filter(Boolean);
+    const images = [row.primaryImage, ...galleryImages].filter(Boolean);
+    const variants = (row.variants || []).filter((variant) => Number.isFinite(Number(variant.price)));
+    const hasDefault = variants.some((variant) => Boolean(variant.isDefault));
+
+    return {
+      id: -(index + 1),
+      name: row.name,
+      slug: row.slug,
+      category: row.category,
+      description: row.description,
+      images: images.map((url, imageIndex) => ({
+        url,
+        alt: `${row.name} image ${imageIndex + 1}`,
+        isPrimary: imageIndex === 0,
+      })),
+      variants: variants.map((variant, variantIndex) => ({
+        label: variant.label,
+        price: Number(variant.price),
+        isDefault: hasDefault ? Boolean(variant.isDefault) : variantIndex === 0,
+      })),
+      reviewSummary: {
+        averageRating: 0,
+        totalReviews: 0,
+      },
+      reviews: [],
+    };
+  });
+}
+
+export async function getPublicProducts() {
+  const attempts = 3;
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const products = await prisma.product.findMany({
+        include: publicProductInclude,
+        orderBy: {
+          id: "asc",
+        },
+      });
+
+      return products.map(productToPublic);
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) {
+        await wait(250 * attempt);
+      }
+    }
+  }
+
+  console.error("getPublicProducts failed after retries, using template fallback", lastError);
+  return loadFallbackProductsFromTemplate();
 }
 
 export async function createOrder(input: CheckoutInput) {
