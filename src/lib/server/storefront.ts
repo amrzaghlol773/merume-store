@@ -38,7 +38,7 @@ export type CheckoutInput = {
   }>;
 };
 
-const WHATSAPP_NUMBER = "201098208357";
+const WHATSAPP_NUMBER = "201140246444";
 
 const publicProductInclude = {
   category: true,

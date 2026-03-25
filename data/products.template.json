@@ -94,7 +94,7 @@
     "name": "Storm",
     "slug": "storm",
     "description": "Sandlwood scent with Saffron ",
-    "primaryImage": "/products/men/Storm.jpeg",
+    "primaryImage": "/products/men/Storrm.jpeg",
     "galleryImages": ["/products/men/Storm2.jpeg"],
     "variants": [
       {
@@ -257,7 +257,7 @@
     "slug": "claire",
     "description": "Oud with woody Scent ",
     "primaryImage": "/products/women/Claire.jpeg",
-    "galleryImages": [],
+    "galleryImages": ["/products/women/Cl23.jpeg"],
     "variants": [
       {
         "label": "50ml",
@@ -278,7 +278,8 @@
     "description": "The same of Miss Laverne",
     "primaryImage": "/products/women/Laverne Dupe2.jpeg",
     "galleryImages": [
-      "/products/women/Laverne Dupe.jpeg"
+      "/products/women/Laverne Dupe.jpeg",
+      "/products/women/LDupe.jpeg"  
     ],
     "variants": [
       {
@@ -359,7 +360,7 @@
     "slug": "fleure",
     "description": "Floral and Feminine",
     "primaryImage": "/products/women/Fleure .jpeg",
-    "galleryImages": [],
+    "galleryImages": ["/products/women/F22.jpeg"],
     "variants": [
       {
         "label": "50ml",
@@ -419,7 +420,7 @@
     "slug": "cherries",
     "description": "Mixed Cherry ",
     "primaryImage": "/products/women/Cherries .jpeg",
-    "galleryImages": [],
+    "galleryImages": ["/products/women/Ch22.jpeg"],
     "variants": [
       {
         "label": "50ml",
@@ -615,9 +616,9 @@
   },
   {
     "category": "Giveaways",
-    "name": "Zead & Sohaila Card",
+    "name": "Elegant Perfume Card Giveaway",
     "slug": "zead-sohaila-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت.",
     "primaryImage": "/products/giveaways/2.jpeg",
     "galleryImages": [],
     "variants": [
@@ -655,9 +656,9 @@
   },
   {
     "category": "Giveaways",
-    "name": "Ahmed & Maram Card",
+    "name": "Event Perfume Card",
     "slug": "ahmed-maram-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت.",
     "primaryImage": "/products/giveaways/WhatsApp Image 2026-03-17 at 5.35.27 AM.jpeg",
     "galleryImages": [
       "/products/giveaways/3.jpeg"
@@ -697,10 +698,10 @@
   },
   {
     "category": "Giveaways",
-    "name": "Two Hearts Invitation Card",
+    "name": "Unique Perfume Card",
     "slug": "two-hearts-invitation-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
-    "primaryImage": "/products/giveaways/6.jpeg",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت."
+    ,"primaryImage": "/products/giveaways/6.jpeg",
     "galleryImages": [
       "/products/giveaways/7.jpeg"
     ],
@@ -739,10 +740,10 @@
   },
   {
     "category": "Giveaways",
-    "name": "Mohamed & Rana Card",
+    "name": "Classic Perfume Card",
     "slug": "mohamed-rana-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
-    "primaryImage": "/products/giveaways/8.jpeg",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت."
+    ,"primaryImage": "/products/giveaways/8.jpeg",
     "galleryImages": [
       "/products/giveaways/9.jpeg"
     ],
@@ -781,10 +782,10 @@
   },
   {
     "category": "Giveaways",
-    "name": "Nelly Couture Card",
+    "name": "Luxury Perfume Card",
     "slug": "nelly-couture-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
-    "primaryImage": "/products/giveaways/11.jpeg",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت."
+    ,"primaryImage": "/products/giveaways/11.jpeg",
     "galleryImages": [],
     "variants": [
       {
@@ -821,9 +822,9 @@
   },
   {
     "category": "Giveaways",
-    "name": "Dr Nasser & Dr Alshymaa Card",
+    "name": "Personalized Perfume Card",
     "slug": "dr-nasser-dr-alshymaa-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت.",
     "primaryImage": "/products/giveaways/WhatsApp Image 2026-03-17 at 5.35.26 AM.jpeg",
     "galleryImages": [],
     "variants": [
@@ -861,9 +862,9 @@
   },
   {
     "category": "Giveaways",
-    "name": "Elegant Floral Card",
+    "name": "Special Perfume Card",
     "slug": "elegant-floral-card",
-    "description": "Luxury giveaway card set. Choose your quantity from available card bundles.",
+    "description": "Choose the quantity that fits your needs, and our customer service team will reach out to you to confirm the names and your preferred design. اطلب العدد المناسب و ستقوم خدمه العملاء بالتواصل معك لتحديد الديزاين و الاسماء الخاصه بك علي الكارت.",
     "primaryImage": "/products/giveaways/5.jpeg",
     "galleryImages": [
       "/products/giveaways/4.jpeg",

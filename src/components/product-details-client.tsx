@@ -161,7 +161,7 @@ export default function ProductDetailsClient({ product }: ProductDetailsClientPr
               <button type="button" className="h-10 w-10 rounded-lg border border-white/20" onClick={() => setQty((previous) => Math.min(20, previous + 1))}>+</button>
             </div>
 
-            <p className="mt-6 text-3xl font-semibold text-[#d4af37]">{formatPrice(currentPrice)}</p>
+            <p className="mt-6 text-3xl font-semibold text-price">{formatPrice(currentPrice)}</p>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <button type="button" onClick={handleAddToCart} className="rounded-lg bg-[#d4af37] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#11120e]">

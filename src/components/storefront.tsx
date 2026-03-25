@@ -378,9 +378,9 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
     if (selectedCategory === "All") {
       const filtered = query
         ? products.filter((product) => {
-            const searchable = `${product.name} ${product.description} ${product.category}`.toLowerCase();
-            return searchable.includes(query);
-          })
+          const searchable = `${product.name} ${product.description} ${product.category}`.toLowerCase();
+          return searchable.includes(query);
+        })
         : products;
 
       if (sortBy === "priceAsc") {
@@ -401,9 +401,9 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
     const filteredByCategory = products.filter((product) => product.category === selectedCategory);
     const filtered = query
       ? filteredByCategory.filter((product) => {
-          const searchable = `${product.name} ${product.description} ${product.category}`.toLowerCase();
-          return searchable.includes(query);
-        })
+        const searchable = `${product.name} ${product.description} ${product.category}`.toLowerCase();
+        return searchable.includes(query);
+      })
       : filteredByCategory;
 
     if (sortBy === "priceAsc") {
@@ -489,8 +489,8 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
   const selectedProductGallery = selectedProduct
     ? selectedProduct.images
-        .map((image) => normalizeImageUrl(image.url))
-        .filter((url): url is string => Boolean(url))
+      .map((image) => normalizeImageUrl(image.url))
+      .filter((url): url is string => Boolean(url))
     : [];
 
   const selectedProductPrice = selectedProduct
@@ -850,13 +850,11 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
           </div>
           <div className="hero-overlay"></div>
           <div className="hero-content">
-            <p className="text-sm uppercase tracking-[0.22em] text-white/90">New Collection 2024</p>
-            <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-5xl">
-              Artisan Scents for the Discerning
+            <p className="text-sm uppercase tracking-[0.22em] text-white/90"></p>
+            <h1 className="mt-3 text-xl font-semibold leading-tight text-white sm:text-2xl">
+              scent that adds a special touch to your day, capturing attention and leaving everyone curious about what makes you so unforgettable
             </h1>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-white/85 sm:text-base">
-              Experience the pinnacle of olfactory art with our curated collection of rare essences and bespoke blends.
-            </p>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-white/85 sm:text-base"></p>
             <div className="mt-6 flex flex-wrap gap-3">
               <button
                 onClick={() => document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" })}
@@ -933,132 +931,132 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
             {!productsLoading && !productsError
               ? displayedProducts.map((product) => {
-                  const defaultVariant = getDefaultVariant(product)?.label || "";
-                  const selectedVariant = cardVariants[product.id] || defaultVariant;
-                  const selectedVariantData = getVariantByLabel(product, selectedVariant);
-                  const isGiveaways = product.category === "Giveaways";
-                  const isLimited = product.id % 3 === 0;
+                const defaultVariant = getDefaultVariant(product)?.label || "";
+                const selectedVariant = cardVariants[product.id] || defaultVariant;
+                const selectedVariantData = getVariantByLabel(product, selectedVariant);
+                const isGiveaways = product.category === "Giveaways";
+                const isLimited = product.id % 3 === 0;
 
-                  return (
-                    <article
-                      key={product.id}
-                      className="product-card min-w-[84%] snap-start sm:min-w-0"
-                      role="button"
-                      tabIndex={0}
-                      onClick={() => openProductView(product)}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          openProductView(product);
-                        }
-                      }}
-                      aria-label={`Open details for ${product.name}`}
-                    >
-                      <div className="product-image-shell relative p-4">
-                        {isLimited ? <span className="limited-chip">Limited</span> : null}
-                        <button
-                          type="button"
-                          aria-label={`Save ${product.name}`}
-                          className="wishlist-btn"
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          ❤
-                        </button>
-                        {getPrimaryImage(product) ? (
-                          <div className="relative h-56 w-full">
-                            <Image
-                              src={getPrimaryImage(product)}
-                              alt={product.name}
-                              fill
-                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                              className="object-cover"
-                            />
+                return (
+                  <article
+                    key={product.id}
+                    className="product-card min-w-[84%] snap-start sm:min-w-0"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openProductView(product)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openProductView(product);
+                      }
+                    }}
+                    aria-label={`Open details for ${product.name}`}
+                  >
+                    <div className="product-image-shell relative p-4">
+                      {isLimited ? <span className="limited-chip">Limited</span> : null}
+                      <button
+                        type="button"
+                        aria-label={`Save ${product.name}`}
+                        className="wishlist-btn"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        ❤
+                      </button>
+                      {getPrimaryImage(product) ? (
+                        <div className="relative h-56 w-full">
+                          <Image
+                            src={getPrimaryImage(product)}
+                            alt={product.name}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="h-56 w-full rounded-lg bg-white" aria-label="No image available" />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <p className="text-xs uppercase tracking-[0.18em] text-charcoal/60">{getCategoryLabel(product.category)}</p>
+                      <h3 className="mt-1 text-xl font-semibold">{product.name}</h3>
+                      <p className="mt-2 font-semibold text-price text-luxuryGold">
+                        {isGiveaways && selectedVariantData
+                          ? formatPrice(selectedVariantData.price)
+                          : getProductPriceLabel(product)}
+                      </p>
+                      <p className="mt-2 text-xs text-charcoal/70">
+                        {product.reviewSummary.totalReviews
+                          ? `${formatRatingStars(product.reviewSummary.averageRating)} ${product.reviewSummary.averageRating.toFixed(1)} (${product.reviewSummary.totalReviews})`
+                          : "No reviews yet"}
+                      </p>
+                      {product.variants.length > 1 ? (
+                        isGiveaways ? (
+                          <div className="mt-3" onClick={(event) => event.stopPropagation()}>
+                            <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.16em] text-charcoal/65">
+                              Choose Package
+                            </label>
+                            <select
+                              value={selectedVariant}
+                              onChange={(event) =>
+                                setCardVariants((previous) => ({
+                                  ...previous,
+                                  [product.id]: event.target.value,
+                                }))
+                              }
+                              className="w-full rounded-xl border border-black/15 bg-gradient-to-b from-white to-[#f6efe2] px-3 py-2.5 text-sm font-medium text-charcoal shadow-sm outline-none transition focus:border-luxuryGold focus:ring-2 focus:ring-luxuryGold/30"
+                              aria-label={`Choose giveaways package for ${product.name}`}
+                            >
+                              {product.variants.map((variant) => (
+                                <option key={variant.label} value={variant.label}>
+                                  {variant.label} - {formatPrice(variant.price)}
+                                </option>
+                              ))}
+                            </select>
                           </div>
                         ) : (
-                          <div className="h-56 w-full rounded-lg bg-[#f2ece2]" aria-label="No image available" />
-                        )}
-                      </div>
-                      <div className="p-4">
-                        <p className="text-xs uppercase tracking-[0.18em] text-charcoal/60">{getCategoryLabel(product.category)}</p>
-                        <h3 className="mt-1 text-xl font-semibold">{product.name}</h3>
-                        <p className="mt-2 font-semibold text-luxuryGold">
-                          {isGiveaways && selectedVariantData
-                            ? formatPrice(selectedVariantData.price)
-                            : getProductPriceLabel(product)}
-                        </p>
-                        <p className="mt-2 text-xs text-charcoal/70">
-                          {product.reviewSummary.totalReviews
-                            ? `${formatRatingStars(product.reviewSummary.averageRating)} ${product.reviewSummary.averageRating.toFixed(1)} (${product.reviewSummary.totalReviews})`
-                            : "No reviews yet"}
-                        </p>
-                        {product.variants.length > 1 ? (
-                          isGiveaways ? (
-                            <div className="mt-3" onClick={(event) => event.stopPropagation()}>
-                              <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.16em] text-charcoal/65">
-                                Choose Package
+                          <div className="mt-3 flex items-center gap-4" onClick={(event) => event.stopPropagation()}>
+                            {product.variants.map((variant) => (
+                              <label key={variant.label} className="inline-flex cursor-pointer items-center gap-2 text-sm text-charcoal/80">
+                                <input
+                                  type="radio"
+                                  name={`variant-${product.id}`}
+                                  value={variant.label}
+                                  checked={selectedVariant === variant.label}
+                                  onChange={(event) =>
+                                    setCardVariants((previous) => ({
+                                      ...previous,
+                                      [product.id]: event.target.value,
+                                    }))
+                                  }
+                                  className="accent-charcoal"
+                                />
+                                {variant.label}
                               </label>
-                              <select
-                                value={selectedVariant}
-                                onChange={(event) =>
-                                  setCardVariants((previous) => ({
-                                    ...previous,
-                                    [product.id]: event.target.value,
-                                  }))
-                                }
-                                className="w-full rounded-xl border border-black/15 bg-gradient-to-b from-white to-[#f6efe2] px-3 py-2.5 text-sm font-medium text-charcoal shadow-sm outline-none transition focus:border-luxuryGold focus:ring-2 focus:ring-luxuryGold/30"
-                                aria-label={`Choose giveaways package for ${product.name}`}
-                              >
-                                {product.variants.map((variant) => (
-                                  <option key={variant.label} value={variant.label}>
-                                    {variant.label} - {formatPrice(variant.price)}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                          ) : (
-                            <div className="mt-3 flex items-center gap-4" onClick={(event) => event.stopPropagation()}>
-                              {product.variants.map((variant) => (
-                                <label key={variant.label} className="inline-flex cursor-pointer items-center gap-2 text-sm text-charcoal/80">
-                                  <input
-                                    type="radio"
-                                    name={`variant-${product.id}`}
-                                    value={variant.label}
-                                    checked={selectedVariant === variant.label}
-                                    onChange={(event) =>
-                                      setCardVariants((previous) => ({
-                                        ...previous,
-                                        [product.id]: event.target.value,
-                                      }))
-                                    }
-                                    className="accent-charcoal"
-                                  />
-                                  {variant.label}
-                                </label>
-                              ))}
-                            </div>
-                          )
-                        ) : null}
-                        <button
-                          className="add-to-cart-btn mt-4 w-full"
-                          type="button"
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            upsertCartItem(product.id, selectedVariant || defaultVariant);
-                          }}
-                        >
-                          Add to Cart
-                        </button>
-                        <Link
-                          href={`/products/${product.slug}`}
-                          className="mt-2 block rounded-lg border border-black/20 px-4 py-2 text-center text-sm font-semibold uppercase tracking-[0.1em] transition hover:bg-charcoal hover:text-white"
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          Open Product Page
-                        </Link>
-                      </div>
-                    </article>
-                  );
-                })
+                            ))}
+                          </div>
+                        )
+                      ) : null}
+                      <button
+                        className="mt-4 w-full rounded-lg bg-luxuryGold px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-charcoal transition hover:brightness-110"
+                        type="button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          upsertCartItem(product.id, selectedVariant || defaultVariant);
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                      <Link
+                        href={`/products/${product.slug}`}
+                        className="mt-2 block rounded-lg border border-black/20 px-4 py-2 text-center text-sm font-semibold uppercase tracking-[0.1em] transition hover:bg-charcoal hover:text-white"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        Open Product Page
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })
               : null}
           </div>
           {!productsLoading && !productsError && (canLoadMoreAll || canShowLessAll) ? (
@@ -1130,11 +1128,10 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                       key={`spotlight-${variant.label}`}
                       type="button"
                       onClick={() => setCardVariants((previous) => ({ ...previous, [spotlightProduct.id]: variant.label }))}
-                      className={`rounded-lg border px-4 py-2 text-sm font-semibold transition ${
-                        spotlightVariantLabel === variant.label
+                      className={`rounded-lg border px-4 py-2 text-sm font-semibold transition ${spotlightVariantLabel === variant.label
                           ? "border-charcoal bg-charcoal text-white"
                           : "border-black/20 bg-white text-charcoal hover:border-charcoal"
-                      }`}
+                        }`}
                     >
                       {variant.label}
                     </button>
@@ -1143,7 +1140,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
               ) : null}
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <p className="text-4xl font-semibold text-charcoal">{formatPrice(spotlightPrice)}</p>
+                <p className="text-4xl font-semibold text-price">{formatPrice(spotlightPrice)}</p>
                 <button
                   type="button"
                   onClick={() => spotlightProduct && upsertCartItem(spotlightProduct.id, spotlightVariantLabel || getDefaultVariant(spotlightProduct)?.label || "")}
@@ -1213,7 +1210,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                 <article key={`featured-${product.id}`} className="rounded-xl border border-black/10 bg-white p-4">
                   <p className="text-xs uppercase tracking-[0.14em] text-charcoal/55">{getCategoryLabel(product.category)}</p>
                   <h4 className="mt-1 text-lg font-semibold">{product.name}</h4>
-                  <p className="mt-2 text-sm text-luxuryGold">From {formatPrice(getLowestPrice(product))}</p>
+                  <p className="mt-2 text-sm text-price">From {formatPrice(getLowestPrice(product))}</p>
                 </article>
               ))}
             </div>
@@ -1301,10 +1298,20 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
         </div>
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-charcoal/65">Follow Us</p>
-          <div className="mt-3 flex gap-2 text-sm">
-            <span className="rounded-md border border-black/20 px-3 py-2">IG</span>
-            <span className="rounded-md border border-black/20 px-3 py-2">FB</span>
-            <span className="rounded-md border border-black/20 px-3 py-2">WA</span>
+          <div className="mt-3 flex flex-col gap-2 text-sm">
+            <a href="https://www.instagram.com/merume_fragrances?igsh=MWgyM2lvYTNiaG00NA==" target="_blank" rel="noopener" className="flex items-center gap-2 rounded-md border border-black/20 px-3 py-2 hover:bg-luxuryGold hover:text-charcoal transition">
+              <img src="/instagram.svg" alt="Instagram" className="h-5 w-5" />
+              @merume_fragrances
+            </a>
+            <a href="https://www.instagram.com/scaleup_egy?igsh=MWkza2RvNG1ucGphMg==" target="_blank" rel="noopener" className="flex items-center gap-2 rounded-md border border-black/20 px-3 py-2 hover:bg-luxuryGold hover:text-charcoal transition">
+              <img src="/instagram.svg" alt="Instagram" className="h-5 w-5" />
+              @scaleup_egy
+            </a>
+          </div>
+          <div className="mt-6 text-xs text-charcoal/60">
+            <p>By scaleup agency</p>
+            <p>Mohamed Hamada</p>
+            <p>Amr Ahmed</p>
           </div>
         </div>
       </footer>
@@ -1314,7 +1321,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
           <div className="flex items-center justify-between border-b border-black/10 bg-charcoal px-4 py-4 text-white sm:px-6">
             <p className="text-xs uppercase tracking-[0.25em] text-white/75">Merume</p>
             <h3 className="text-xl font-semibold sm:text-2xl">Shopping Cart</h3>
-            <button id="close-cart" type="button" onClick={() => setCartOpen(false)} className="rounded-full border border-white/35 px-3 py-1 text-sm transition hover:bg-white hover:text-charcoal">Close</button>
+            <button id="close-cart" type="button" onClick={() => setCartOpen(false)} className="rounded-full border border-white/35 px-3 py-1 text-sm text-luxuryGold transition hover:bg-white hover:text-charcoal">Close</button>
           </div>
 
           <div className="grid flex-1 grid-cols-1 gap-6 overflow-y-auto p-4 sm:p-6 lg:grid-cols-[1.7fr_0.9fr]">
@@ -1497,9 +1504,9 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
       </div>
 
       <div id="product-view" className={`fixed inset-0 z-[80] p-4 sm:p-8 ${productViewOpen ? "" : "hidden"}`} role="dialog" aria-modal="true" aria-labelledby="view-name">
-        <div className="mx-auto flex h-full w-full max-w-6xl flex-col overflow-hidden rounded-2xl bg-cream shadow-2xl">
+        <div className="mx-auto flex h-full w-full max-w-6xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
           <div className="flex items-center justify-between border-b border-black/10 bg-charcoal p-4 text-white sm:p-6">
-            <button id="back-to-shop" type="button" onClick={closeProductView} className="rounded-full border border-white/35 px-4 py-2 text-sm font-medium transition hover:bg-white hover:text-charcoal">Back</button>
+            <button id="back-to-shop" type="button" onClick={closeProductView} className="rounded-full border border-white/35 px-4 py-2 text-sm font-medium text-luxuryGold transition hover:bg-white hover:text-charcoal">Back</button>
             <p className="text-xs uppercase tracking-[0.2em] text-white/70">Product Details</p>
           </div>
 
@@ -1507,7 +1514,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
             <div>
               <div className="rounded-2xl border border-black/10 bg-white p-4">
                 {selectedViewImage ? (
-                  <div className="relative h-[330px] w-full overflow-hidden rounded-xl bg-[#faf7f2]">
+                  <div className="relative h-[330px] w-full overflow-hidden rounded-xl bg-white">
                     <Image
                       id="view-image"
                       src={selectedViewImage}
@@ -1518,7 +1525,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                     />
                   </div>
                 ) : (
-                  <div className="h-[330px] w-full rounded-xl bg-[#faf7f2]" aria-label="No image available" />
+                  <div className="h-[330px] w-full rounded-xl bg-white" aria-label="No image available" />
                 )}
               </div>
               <div id="view-thumbnails" className="mt-3 flex gap-2">
@@ -1530,10 +1537,10 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
               </div>
             </div>
 
-            <div className="flex flex-col rounded-2xl border border-black/10 bg-white/90 p-5">
+            <div className="flex flex-col rounded-2xl border border-black/10 bg-white p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-charcoal/55">Parfums de Merume</p>
               <h3 id="view-name" className="text-3xl font-semibold leading-tight">{selectedProduct?.name || ""}</h3>
-              <p id="view-price" className="mt-2 text-2xl font-semibold text-luxuryGold">{formatPrice(selectedProductPrice)}</p>
+              <p id="view-price" className="mt-2 text-2xl font-semibold text-price text-luxuryGold">{formatPrice(selectedProductPrice)}</p>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-charcoal/60">Volume</p>

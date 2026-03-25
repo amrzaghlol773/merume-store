@@ -171,7 +171,7 @@ export default function CartPageClient() {
                   <div>
                     <h2 className="text-lg font-semibold">{product.name}</h2>
                     <p className="text-xs uppercase tracking-[0.12em] text-[#b2b4a6]">{variant?.label || "Default"}</p>
-                    <p className="mt-1 text-sm text-[#d4af37]">{formatPrice(variant?.price || 0)} each</p>
+                    <p className="mt-1 text-sm text-price">{formatPrice(variant?.price || 0)} each</p>
                     <div className="mt-2 flex items-center gap-2">
                       <button
                         type="button"
@@ -199,7 +199,7 @@ export default function CartPageClient() {
                       </button>
                     </div>
                   </div>
-                  <p className="whitespace-nowrap text-sm font-semibold">{formatPrice((variant?.price || 0) * cartItem.qty)}</p>
+                  <p className="whitespace-nowrap text-sm font-semibold text-price">{formatPrice((variant?.price || 0) * cartItem.qty)}</p>
                 </article>
               );
             })}

@@ -288,7 +288,7 @@ export default function CheckoutPageClient() {
                 return (
                   <div key={`${cartItem.productId}-${cartItem.variantLabel}`} className="flex items-center justify-between gap-3">
                     <span>{product.name}{variant?.label ? ` ${variant.label}` : ""} x{cartItem.qty}</span>
-                    <span className="font-semibold">{formatPrice((variant?.price || 0) * cartItem.qty)}</span>
+                    <span className="font-semibold text-price">{formatPrice((variant?.price || 0) * cartItem.qty)}</span>
                   </div>
                 );
               })}
