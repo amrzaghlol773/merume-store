@@ -69,6 +69,151 @@
       }
     ]
   },
+  
+  {
+    "category": "Women",
+    "name": "Jamila ",
+    "slug": "Jamila ",
+    "description": "Creamy Strawberry Delight",
+    "primaryImage": "/products/women/Jamila .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  {
+    "category": "Women",
+    "name": "Cinnamon Bloom ",
+    "slug": "cinnamon-bloom",
+    "description": "So Unique scent",
+    "primaryImage": "/products/women/Cinnamon Bloom .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+    {
+    "category": "Men",
+    "name": "Cinnamon Bloom ",
+    "slug": "cinnamon-bloom",
+    "description": "So Unique scent",
+    "primaryImage": "/products/women/Cinnamon Bloom .jpeg",
+    "galleryImages": [],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+  
+
+  
+
+  {
+    "category": "Men",
+    "name": "Amber",
+    "slug": "Amber",
+    "description": "Arabic scent with French Touch ",
+    "primaryImage": "/products/men/Amber.jpeg",
+    "galleryImages": ["/products/men/Amber2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
+   {
+    "category": "Women",
+    "name": "Claire",
+    "slug": "claire",
+    "description": "Oud with woody Scent ",
+    "primaryImage": "/products/women/Claire.jpeg",
+    "galleryImages": ["/products/women/Cl23.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 420,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 575,
+        "isDefault": false
+      }
+    ]
+  },
+   {
+    "category": "Men",
+    "name": "Claire",
+    "slug": "claire",
+    "description": "Oud with woody Scent ",
+    "primaryImage": "/products/women/Claire.jpeg",
+    "galleryImages": ["/products/women/Cl23.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 420,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 575,
+        "isDefault": false
+      }
+    ]
+  },
+    {
+    "category": "Men",
+    "name": "Bold",
+    "slug": "bold",
+    "description": "excellent longevity",
+    "primaryImage": "/products/men/Bold.jpeg",
+    "galleryImages": ["/products/men/Bold2.jpeg"],
+    "variants": [
+      {
+        "label": "50ml",
+        "price": 400,
+        "isDefault": true
+      },
+      {
+        "label": "100ml",
+        "price": 550,
+        "isDefault": false
+      }
+    ]
+  },
   {
     "category": "Candles",
     "name": "Solenna Air Freshener",
@@ -129,26 +274,7 @@
       }
     ]
   },
-  {
-    "category": "Men",
-    "name": "Bold",
-    "slug": "bold",
-    "description": "excellent longevity",
-    "primaryImage": "/products/men/Bold.jpeg",
-    "galleryImages": ["/products/men/Bold2.jpeg"],
-    "variants": [
-      {
-        "label": "50ml",
-        "price": 400,
-        "isDefault": true
-      },
-      {
-        "label": "100ml",
-        "price": 550,
-        "isDefault": false
-      }
-    ]
-  },
+
   {
     "category": "Men",
     "name": "Dupe",
@@ -210,26 +336,7 @@
     ]
   },
  
-  {
-    "category": "Men",
-    "name": "Amber",
-    "slug": "Amber",
-    "description": "Arabic scent with French Touch ",
-    "primaryImage": "/products/men/Amber.jpeg",
-    "galleryImages": ["/products/men/Amber2.jpeg"],
-    "variants": [
-      {
-        "label": "50ml",
-        "price": 400,
-        "isDefault": true
-      },
-      {
-        "label": "100ml",
-        "price": 550,
-        "isDefault": false
-      }
-    ]
-  },
+  
   {
     "category": "Men",
     "name": "Turath ",
@@ -251,26 +358,7 @@
     ]
   },
   
-  {
-    "category": "Women",
-    "name": "Claire",
-    "slug": "claire",
-    "description": "Oud with woody Scent ",
-    "primaryImage": "/products/women/Claire.jpeg",
-    "galleryImages": ["/products/women/Cl23.jpeg"],
-    "variants": [
-      {
-        "label": "50ml",
-        "price": 420,
-        "isDefault": true
-      },
-      {
-        "label": "100ml",
-        "price": 575,
-        "isDefault": false
-      }
-    ]
-  },
+ 
   {
     "category": "Women",
     "name": "Laverne Dupe",
@@ -474,26 +562,7 @@
       }
     ]
   },
-  {
-    "category": "Women",
-    "name": "Jamila ",
-    "slug": "Jamila ",
-    "description": "Creamy Strawberry Delight",
-    "primaryImage": "/products/women/Jamila .jpeg",
-    "galleryImages": [],
-    "variants": [
-      {
-        "label": "50ml",
-        "price": 400,
-        "isDefault": true
-      },
-      {
-        "label": "100ml",
-        "price": 550,
-        "isDefault": false
-      }
-    ]
-  },
+  
   {
     "category": "Women",
     "name": "Turath",
@@ -514,26 +583,7 @@
       }
     ]
   },
-  {
-    "category": "Women",
-    "name": "Cinnamon Bloom ",
-    "slug": "cinnamon-bloom",
-    "description": "So Unique scent",
-    "primaryImage": "/products/women/Cinnamon Bloom .jpeg",
-    "galleryImages": [],
-    "variants": [
-      {
-        "label": "50ml",
-        "price": 400,
-        "isDefault": true
-      },
-      {
-        "label": "100ml",
-        "price": 550,
-        "isDefault": false
-      }
-    ]
-  },
+  
   {
     "category": "Women",
     "name": "Valentino dupe",

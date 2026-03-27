@@ -689,7 +689,7 @@ export default function Storefront() {
 
           <div
             id="product-grid"
-            className="-mx-4 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3"
+            className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full px-4 !overflow-x-hidden"
           >
             {productsLoading ? (
               <p className="w-full rounded-xl border border-black/10 bg-white p-6 text-center text-charcoal/60 sm:col-span-full">Loading products...</p>
@@ -709,9 +709,9 @@ export default function Storefront() {
                 const isGiveaways = product.category === "Giveaways";
 
                 return (
-                  <article
-                    key={product.id}
-                    className="product-card min-w-[84%] snap-start sm:min-w-0"
+                    <article
+                      key={product.id}
+                      className="product-card"
                     role="button"
                     tabIndex={0}
                     onClick={() => openProductView(product)}
@@ -1163,7 +1163,6 @@ export default function Storefront() {
         </div>
       </div>
 
-      <a href="/admin" className="fixed bottom-4 right-4 rounded-full border border-black/20 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-charcoal shadow-lg">Admin</a>
     </>
   );
 }

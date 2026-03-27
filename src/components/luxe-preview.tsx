@@ -101,18 +101,15 @@ export default function LuxePreview() {
           <div className={styles.heroContent}>
             <p className={styles.heroEyebrow}>NEW COLLECTION 2024</p>
             <h1>
-              Artisan Scents for the <span>Discerning</span>
+              Merume Artisan Scents for the <span>Discerning</span>
             </h1>
             <p>
-              Experience the pinnacle of olfactory art with our curated collection of rare essences and bespoke
+              Merume Experience the pinnacle of olfactory art with our curated collection of rare essences and bespoke
               blends.
             </p>
             <div className={styles.heroActions}>
               <button type="button" className={styles.primaryBtn}>
-                Explore Collection
-              </button>
-              <button type="button" className={styles.ghostBtn}>
-                Discover Oud
+                Shop Now
               </button>
             </div>
           </div>

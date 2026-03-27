@@ -795,8 +795,23 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
         className={`fixed left-0 right-0 top-0 z-40 transition-all duration-300 ${isNavSolid ? "nav-solid" : ""}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#home" className="logo-mark">
-            Merume
+          <a href="#home" className="logo-mark flex flex-col items-start leading-none" style={{ textDecoration: "none" }}>
+            <span style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 700,
+              fontSize: "2.1rem",
+              letterSpacing: "0.08em",
+              color: "#fff",
+              lineHeight: 1.1
+            }}>MÉRÛME</span>
+            <span style={{
+              fontFamily: "'Dancing Script', cursive",
+              fontWeight: 500,
+              fontSize: "1.05rem",
+              color: "#fff",
+              marginTop: "-0.2em",
+              marginLeft: "0.1em"
+            }}>Unique Fragrances</span>
           </a>
 
           <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
@@ -862,14 +877,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                 type="button"
                 className="rounded-full bg-luxuryGold px-6 py-3 font-semibold text-charcoal transition hover:brightness-110"
               >
-                Explore Collection
-              </button>
-              <button
-                onClick={() => document.getElementById("spotlight")?.scrollIntoView({ behavior: "smooth" })}
-                type="button"
-                className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-charcoal"
-              >
-                Discover Oud
+                Shop Now
               </button>
             </div>
           </div>
@@ -1682,7 +1690,6 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
         </div>
       </div>
 
-      <a href="/admin" className="fixed bottom-4 right-4 rounded-full border border-black/20 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-charcoal shadow-lg">Admin</a>
     </>
   );
 }

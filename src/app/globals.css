@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Dancing+Script:wght@500&family=Montserrat:wght@500;600;700&display=swap');
 
 @import "tailwindcss";
 
@@ -357,5 +358,24 @@ body {
   }
 }
 
+/* أجمد كود لقفل السكرول الأفقي وفرض الشبكة الرأسية */
+/* ده الكود اللي هيخلي الموبايل 2 واللاب توب 4 */
+/* 1. للموبايل فقط (أصغر من 768px) */
+@media (max-width: 767px) {
+  [class*="grid-cols-2"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    overflow-x: hidden !important;
+  }
+}
 
-
+/* 2. للتابلت واللاب توب (768px وأكبر) */
+@media (min-width: 768px) {
+  [class*="grid-cols-2"] {
+    display: grid !important;
+    /* هنا بنجبره يظهر 3 أو 4 حسب المساحة */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; 
+    gap: 20px !important;
+  }
+}

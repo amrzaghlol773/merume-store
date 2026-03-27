@@ -38,7 +38,7 @@ export type CheckoutInput = {
   }>;
 };
 
-const WHATSAPP_NUMBER = "201140246444";
+const WHATSAPP_NUMBER = "201131104759";
 
 const publicProductInclude = {
   category: true,
@@ -160,6 +160,14 @@ export async function getPublicProducts() {
   const attempts = 3;
   let lastError: unknown;
 
+  const featuredNames = [
+    "Jamila",
+    "Cinnamon Bloom",
+    "Claire",
+    "Solenna Air Freshener",
+    "Amber",
+    "Bold Dupe",
+  ];
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const products = await prisma.product.findMany({
@@ -169,7 +177,17 @@ export async function getPublicProducts() {
         },
       });
 
-      return products.map(productToPublic);
+      // Sort: featured names first (in order), then the rest
+      const sortedProducts = [...products].sort((a, b) => {
+        const indexA = featuredNames.indexOf(a.name);
+        const indexB = featuredNames.indexOf(b.name);
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+        return 0;
+      });
+
+      return sortedProducts.map(productToPublic);
     } catch (error) {
       lastError = error;
       if (attempt < attempts) {

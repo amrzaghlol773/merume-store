@@ -47,6 +47,7 @@ model Product {
   images      ProductImage[]
   orderItems  OrderItem[]
   reviews     Review[]
+  featured    Boolean          @default(false)
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
 }
