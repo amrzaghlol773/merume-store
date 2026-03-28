@@ -1,4 +1,8 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Dancing+Script:wght@500&family=Montserrat:wght@500;600;700&display=swap');
+
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Dancing+Script:wght@500&family=Montserrat:wght@500;600;700&display=swap');
 
 @import "tailwindcss";
@@ -377,5 +381,28 @@ body {
     /* هنا بنجبره يظهر 3 أو 4 حسب المساحة */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; 
     gap: 20px !important;
+  }
+}
+/* --- تعديلات الموبايل لصور سيكشن Why Choose Merume --- */
+@media (max-width: 767px) {
+  /* السيكشن اللي فيه الصورة والكلام */
+  #about, #why-merume {
+    display: flex !important;
+    flex-direction: column !important; /* خلي الكلام فوق والصورة تحت أو العكس */
+    align-items: center !important;
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+  }
+
+  /* ظبط الصورة نفسها */
+  #about img, #why-merume img {
+    width: 100% !important;
+    max-width: 320px !important; /* عشان متبقاش عملاقة بزيادة */
+    height: auto !important;
+    aspect-ratio: 4/5 !important; /* المقاس البريميوم للبراندات */
+    object-fit: cover !important; /* عشان الصورة متتمطش */
+    border-radius: 1.5rem !important; /* الزوايا الدائرية الشيك */
+    margin-top: 1.5rem !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
   }
 }

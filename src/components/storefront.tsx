@@ -867,7 +867,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
           <div className="hero-content">
             <p className="text-sm uppercase tracking-[0.22em] text-white/90"></p>
             <h1 className="mt-3 text-xl font-semibold leading-tight text-white sm:text-2xl">
-              scent that adds a special touch to your day, capturing attention and leaving everyone curious about what makes you so unforgettable
+              Merume scent that adds a special touch to your day, capturing attention and leaving everyone curious about what makes you so unforgettable
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-7 text-white/85 sm:text-base"></p>
             <div className="mt-6 flex flex-wrap gap-3">
