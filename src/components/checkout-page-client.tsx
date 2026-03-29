@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-
+import { useRouter } from "next/navigation";
 import { clearCart, readCart, type CartItem } from "@/lib/client/cart";
 
 type Product = {
@@ -85,6 +85,7 @@ function getVariantByLabel(product: Product, label: string) {
 }
 
 export default function CheckoutPageClient() {
+  const router = useRouter();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -198,7 +199,7 @@ export default function CheckoutPageClient() {
       const orderId = Number(json.orderId || 0);
       const total = Number(json.total || 0);
       const nextUrl = `/order-success?orderId=${orderId}&total=${total}&wa=${encodeURIComponent(json.whatsappUrl)}`;
-      window.location.href = nextUrl;
+      router.push(nextUrl);
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Failed to create order");
     } finally {
