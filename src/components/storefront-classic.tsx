@@ -501,8 +501,8 @@ export default function Storefront() {
     const unitPrice = getVariantByLabel(selectedProduct, selectedViewVariant)?.price || 0;
     const variantLabel = selectedViewVariant ? ` ${selectedViewVariant}` : "";
 
-    const message = `Hello Merume, I want to order ${selectedProduct.name}${variantLabel} x${selectedViewQuantity}. Unit price: ${unitPrice} EGP, Total: ${unitPrice * selectedViewQuantity} EGP.`;
-    window.open(`https://wa.me/201098208357?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    // const message = `Hello Merume, I want to order ${selectedProduct.name}${variantLabel} x${selectedViewQuantity}. Unit price: ${unitPrice} EGP, Total: ${unitPrice * selectedViewQuantity} EGP.`;
+    // window.open(`https://wa.me/201131104759?text=${encodeURIComponent(message)}`, "_blank", "noopener");
   };
 
   const submitCheckoutOrder = async (event: FormEvent<HTMLFormElement>) => {

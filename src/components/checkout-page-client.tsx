@@ -194,7 +194,7 @@ export default function CheckoutPageClient() {
 
       clearCart();
       setCart([]);
-      window.open(json.whatsappUrl, "_blank", "noopener");
+     // window.open(json.whatsappUrl, "_blank", "noopener");
       const orderId = Number(json.orderId || 0);
       const total = Number(json.total || 0);
       const nextUrl = `/order-success?orderId=${orderId}&total=${total}&wa=${encodeURIComponent(json.whatsappUrl)}`;

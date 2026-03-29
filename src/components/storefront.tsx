@@ -607,8 +607,8 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
     const unitPrice = getVariantByLabel(selectedProduct, selectedViewVariant)?.price || 0;
     const variantLabel = selectedViewVariant ? ` ${selectedViewVariant}` : "";
 
-    const message = `Hello Merume, I want to order ${selectedProduct.name}${variantLabel} x${selectedViewQuantity}. Unit price: ${unitPrice} EGP, Total: ${unitPrice * selectedViewQuantity} EGP.`;
-    window.open(`https://wa.me/201098208357?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    // const message = `Hello Merume, I want to order ${selectedProduct.name}${variantLabel} x${selectedViewQuantity}. Unit price: ${unitPrice} EGP, Total: ${unitPrice * selectedViewQuantity} EGP.`;
+    // window.open(`https://wa.me/201131104759?text=${encodeURIComponent(message)}`, "_blank", "noopener");
   };
 
   const orderCartViaWhatsApp = () => {
@@ -636,7 +636,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
       items_count: cart.length,
       checkout_mode: "whatsapp_quick",
     });
-    window.open(`https://wa.me/201098208357?text=${message}`, "_blank", "noopener");
+    // window.open(`https://wa.me/201131104759?text=${message}`, "_blank", "noopener");
   };
 
   const submitProductReview = async (event: FormEvent<HTMLFormElement>) => {
@@ -1574,7 +1574,6 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button id="view-add-to-cart" type="button" onClick={addSelectedProductFromView} className="rounded-lg bg-luxuryGold px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-charcoal transition hover:brightness-110">Add to Cart</button>
-                <button id="whatsapp-order" type="button" onClick={orderSelectedProductViaWhatsApp} className="rounded-lg border border-charcoal/30 bg-white px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-charcoal transition hover:bg-charcoal hover:text-white">Order via WhatsApp</button>
               </div>
               <p id="view-add-feedback" className={`mt-2 text-sm font-semibold text-luxuryGold ${addFeedback ? "" : "hidden"}`}>{addFeedback || "Added!"}</p>
 

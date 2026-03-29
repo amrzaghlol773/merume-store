@@ -90,10 +90,7 @@ export default function ProductDetailsClient({ product }: ProductDetailsClientPr
     }
   };
 
-  const quickOrderViaWhatsApp = () => {
-    const message = `Hello Merume, I want to order ${product.name} (${selectedVariant}) x${qty}. Total: ${(currentPrice * qty).toLocaleString("en-EG")} EGP.`;
-    window.open(`https://wa.me/201098208357?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-  };
+ 
 
   return (
     <main className="min-h-screen bg-[#0f100d] px-4 py-10 text-[#ece9df] sm:px-6 lg:px-8">
@@ -167,9 +164,7 @@ export default function ProductDetailsClient({ product }: ProductDetailsClientPr
               <button type="button" onClick={handleAddToCart} className="rounded-lg bg-[#d4af37] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#11120e]">
                 Add to Cart
               </button>
-              <button type="button" onClick={quickOrderViaWhatsApp} className="rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em]">
-                Quick WhatsApp Order
-              </button>
+             
             </div>
             {feedback ? <p className="mt-3 text-sm font-semibold text-[#d4af37]">{feedback}</p> : null}
           </div>

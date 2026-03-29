@@ -101,28 +101,28 @@ export default function CartPageClient() {
     [cart, productMap],
   );
 
-  const quickOrderViaWhatsApp = () => {
-    if (!cart.length) {
-      return;
-    }
+  // const quickOrderViaWhatsApp = () => {
+  //   if (!cart.length) {
+  //     return;
+  //   }
 
-    const lines = cart
-      .map((cartItem, index) => {
-        const product = productMap.get(cartItem.productId);
-        if (!product) {
-          return `${index + 1}) Product unavailable x${cartItem.qty}`;
-        }
+  //   const lines = cart
+  //     .map((cartItem, index) => {
+  //       const product = productMap.get(cartItem.productId);
+  //       if (!product) {
+  //         return `${index + 1}) Product unavailable x${cartItem.qty}`;
+  //       }
 
-        const variant = getVariantByLabel(product, cartItem.variantLabel);
-        const variantText = variant?.label ? ` (${variant.label})` : "";
-        const lineTotal = (variant?.price || 0) * cartItem.qty;
-        return `${index + 1}) ${product.name}${variantText} x${cartItem.qty} - ${lineTotal.toLocaleString("en-EG")} EGP`;
-      })
-      .join("\n");
+  //       const variant = getVariantByLabel(product, cartItem.variantLabel);
+  //       const variantText = variant?.label ? ` (${variant.label})` : "";
+  //       const lineTotal = (variant?.price || 0) * cartItem.qty;
+  //       return `${index + 1}) ${product.name}${variantText} x${cartItem.qty} - ${lineTotal.toLocaleString("en-EG")} EGP`;
+  //     })
+  //     .join("\n");
 
-    const message = `Hello Merume, I want to place a quick WhatsApp order:\n\n${lines}\n\nSubtotal: ${subtotal.toLocaleString("en-EG")} EGP`;
-    window.open(`https://wa.me/201098208357?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-  };
+  //   // const message = `Hello Merume, I want to place a quick WhatsApp order:\n\n${lines}\n\nSubtotal: ${subtotal.toLocaleString("en-EG")} EGP`;
+  //   // window.open(`https://wa.me/201131104759?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+  // };
 
   return (
     <main className="min-h-screen bg-[#0f100d] px-4 py-10 text-[#ece9df] sm:px-6 lg:px-8">
@@ -223,14 +223,14 @@ export default function CartPageClient() {
               Proceed to Checkout
             </Link>
 
-            <button
+            {/* <button
               type="button"
               onClick={quickOrderViaWhatsApp}
               disabled={!cart.length}
               className="mt-3 w-full rounded-lg border border-[#d4af37]/35 bg-[#1b1c15] px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#ece9df] disabled:cursor-not-allowed disabled:opacity-50"
             >
               Quick Order via WhatsApp
-            </button>
+            </button> */}
           </aside>
         </div>
       </div>

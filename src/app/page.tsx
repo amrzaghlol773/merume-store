@@ -23,7 +23,7 @@ export default function Home() {
         "@type": "Store",
         name: "Merume Fragrances",
         image: ["https://merumefragrances.com/about2.jpeg"],
-        telephone: "+201098208357",
+        telephone: "+201131104759",
         address: {
           "@type": "PostalAddress",
           addressCountry: "EG",
