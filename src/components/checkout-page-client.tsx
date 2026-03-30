@@ -193,21 +193,24 @@ export default function CheckoutPageClient() {
         throw new Error(json.error || "Failed to create order");
       }
 
-      clearCart();
-      setCart([]);
-     // window.open(json.whatsappUrl, "_blank", "noopener");
+      // window.open(json.whatsappUrl, "_blank", "noopener");
       const orderId = Number(json.orderId || 0);
       const total = Number(json.total || 0);
       // const nextUrl = `/order-success?orderId=${orderId}&total=${total}&wa=${encodeURIComponent(json.whatsappUrl)}`;
       // router.push(nextUrl);
       // 1. تخزين البيانات في ذاكرة المتصفح عشان سفاري
       const orderData = {
-        orderId: json.orderId,
-        total: json.total,
-        wa: json.whatsappUrl
+        orderId: orderId,
+        total: total,
+        name: customerName,        // ضفنا دي
+        phone: normalizedPhone,    // ضفنا دي
+        address: customerAddress,  // ضفنا دي
+        city: selectedGovernorateKey //
       };
       sessionStorage.setItem('lastOrder', JSON.stringify(orderData));
-
+         
+      clearCart();
+      setCart([]);
       // 2. الانتقال لصفحة النجاح بلينك نضيف
       router.push('/order-success');
     } catch (submitError) {

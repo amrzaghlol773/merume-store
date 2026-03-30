@@ -1,25 +1,30 @@
-
-
-
-
 "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function OrderSuccessClient() {
-  const [orderData, setOrderData] = useState<{orderId: any, total: any, wa: any} | null>(null);
+type OrderData = {
+  orderId: number;
+  total: number;
+  name: string;
+  phone: string;
+  address: string;
+  city: string;
+};
+
+export default function OrderSuccess() {
+  const [orderData, setOrderData] = useState<OrderData | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // قراءة البيانات اللي إنت لسه مخزنها في الـ Checkout
-    const savedOrder = sessionStorage.getItem('lastOrder');
+    const savedOrder = sessionStorage.getItem("lastOrder");
     if (savedOrder) {
       setOrderData(JSON.parse(savedOrder));
     }
+    setLoading(false);
   }, []);
 
-  // لو مفيش بيانات لسه (عشان سفاري بياخد وقت بسيط)
-  if (!orderData) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-[#0f100d] flex items-center justify-center text-[#ece9df]">
         <p className="animate-pulse">Loading order details...</p>
@@ -27,42 +32,143 @@ export default function OrderSuccessClient() {
     );
   }
 
+  if (!orderData) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/";
+    }
+    return null;
+  }
+
+  const handleWhatsApp = () => {
+    const phone = "201131104759";
+
+    const message = encodeURIComponent(`
+Order #${orderData.orderId}
+
+Total: ${orderData.total} EGP
+
+Customer Details:
+Name: ${orderData.name}
+Phone: ${orderData.phone}
+Address: ${orderData.address}
+City: ${orderData.city}
+    `);
+
+    const appUrl = `whatsapp://send?phone=${phone}&text=${message}`;
+    const webUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+    window.location.href = appUrl;
+
+    setTimeout(() => {
+      window.location.href = webUrl;
+    }, 800);
+  };
+
   return (
     <main className="min-h-screen bg-[#0f100d] px-4 py-12 text-[#ece9df] flex items-center justify-center">
       <div className="mx-auto w-full max-w-md rounded-3xl border border-[#d4af37]/25 bg-[#161711] p-6 flex flex-col items-center">
-        <div className="flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 mb-4">
-          <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <p className="text-xs uppercase tracking-[0.2em] text-[#d4af37]">Order Confirmed</p>
-        <h1 className="mt-3 text-3xl font-semibold text-center">Thank You</h1>
-        
+
+        <h1 className="mt-3 text-3xl font-semibold text-center">
+          Thank You
+        </h1>
+
         <div className="mt-6 w-full grid gap-3 rounded-xl border border-white/10 bg-[#1b1c15] p-4 grid-cols-2">
           <div>
             <p className="text-xs text-[#aeb0a2]">Order Number</p>
-            <p className="mt-1 text-xl font-semibold">#{orderData.orderId}</p>
+            <p className="mt-1 text-xl font-semibold">
+              #{orderData?.orderId}
+            </p>
           </div>
           <div>
             <p className="text-xs text-[#aeb0a2]">Total Amount</p>
-            <p className="mt-1 text-xl font-semibold text-[#d4af37]">{orderData.total} EGP</p>
+            <p className="mt-1 text-xl font-semibold text-[#d4af37]">
+              {orderData?.total} EGP
+            </p>
           </div>
         </div>
 
         <button
-          onClick={() => {
-            if (orderData.wa) window.location.href = orderData.wa;
-          }}
+          onClick={handleWhatsApp}
           className="mt-8 w-full rounded-xl bg-[#25D366] py-4 text-lg font-bold text-white shadow-lg active:scale-95 transition-transform"
         >
           Confirm via WhatsApp
         </button>
 
-        <Link href="/" className="mt-6 text-sm underline opacity-50 hover:opacity-100">Back to Home</Link>
+        <Link
+          href="/"
+          className="mt-6 text-sm underline opacity-50 hover:opacity-100"
+        >
+          Back to Home
+        </Link>
+
       </div>
     </main>
   );
 }
+
+
+
+// "use client";
+
+// import Link from "next/link";
+// import { useEffect, useState } from "react";
+
+// export default function OrderSuccessClient() {
+//   const [orderData, setOrderData] = useState<{orderId: any, total: any, wa: any} | null>(null);
+
+//   useEffect(() => {
+//     // قراءة البيانات اللي إنت لسه مخزنها في الـ Checkout
+//     const savedOrder = sessionStorage.getItem('lastOrder');
+//     if (savedOrder) {
+//       setOrderData(JSON.parse(savedOrder));
+//     }
+//   }, []);
+
+//   // لو مفيش بيانات لسه (عشان سفاري بياخد وقت بسيط)
+//   if (!orderData) {
+//     return (
+//       <div className="min-h-screen bg-[#0f100d] flex items-center justify-center text-[#ece9df]">
+//         <p className="animate-pulse">Loading order details...</p>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <main className="min-h-screen bg-[#0f100d] px-4 py-12 text-[#ece9df] flex items-center justify-center">
+//       <div className="mx-auto w-full max-w-md rounded-3xl border border-[#d4af37]/25 bg-[#161711] p-6 flex flex-col items-center">
+//         <div className="flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 mb-4">
+//           <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+//             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+//           </svg>
+//         </div>
+//         <p className="text-xs uppercase tracking-[0.2em] text-[#d4af37]">Order Confirmed</p>
+//         <h1 className="mt-3 text-3xl font-semibold text-center">Thank You</h1>
+        
+//         <div className="mt-6 w-full grid gap-3 rounded-xl border border-white/10 bg-[#1b1c15] p-4 grid-cols-2">
+//           <div>
+//             <p className="text-xs text-[#aeb0a2]">Order Number</p>
+//             <p className="mt-1 text-xl font-semibold">#{orderData.orderId}</p>
+//           </div>
+//           <div>
+//             <p className="text-xs text-[#aeb0a2]">Total Amount</p>
+//             <p className="mt-1 text-xl font-semibold text-[#d4af37]">{orderData.total} EGP</p>
+//           </div>
+//         </div>
+
+//         <button
+//           onClick={() => {
+//             if (orderData.wa) window.location.href = orderData.wa;
+//           }}
+//           className="mt-8 w-full rounded-xl bg-[#25D366] py-4 text-lg font-bold text-white shadow-lg active:scale-95 transition-transform"
+//         >
+//           Confirm via WhatsApp
+//         </button>
+
+//         <Link href="/" className="mt-6 text-sm underline opacity-50 hover:opacity-100">Back to Home</Link>
+//       </div>
+//     </main>
+//   );
+// }
 
 
 
