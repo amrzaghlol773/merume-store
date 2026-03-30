@@ -198,8 +198,18 @@ export default function CheckoutPageClient() {
      // window.open(json.whatsappUrl, "_blank", "noopener");
       const orderId = Number(json.orderId || 0);
       const total = Number(json.total || 0);
-      const nextUrl = `/order-success?orderId=${orderId}&total=${total}&wa=${encodeURIComponent(json.whatsappUrl)}`;
-      router.push(nextUrl);
+      // const nextUrl = `/order-success?orderId=${orderId}&total=${total}&wa=${encodeURIComponent(json.whatsappUrl)}`;
+      // router.push(nextUrl);
+      // 1. تخزين البيانات في ذاكرة المتصفح عشان سفاري
+      const orderData = {
+        orderId: json.orderId,
+        total: json.total,
+        wa: json.whatsappUrl
+      };
+      sessionStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+      // 2. الانتقال لصفحة النجاح بلينك نضيف
+      router.push('/order-success');
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Failed to create order");
     } finally {

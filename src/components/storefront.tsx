@@ -246,6 +246,14 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
   const [selectedViewQuantity, setSelectedViewQuantity] = useState(1);
   const [selectedViewImage, setSelectedViewImage] = useState("");
   const [addFeedback, setAddFeedback] = useState("");
+  // Toast notification state
+  const [showToast, setShowToast] = useState(false);
+
+  // Toast trigger function
+  const triggerToast = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
   const [cardVariants, setCardVariants] = useState<Record<number, string>>({});
 
   const [customerName, setCustomerName] = useState("");
@@ -596,7 +604,8 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
     }
 
     upsertCartItem(selectedProduct.id, selectedViewVariant, selectedViewQuantity);
-    setAddFeedback(`Added x${selectedViewQuantity}!`);
+    setAddFeedback(""); // Hide old feedback
+    triggerToast();
   };
 
   const orderSelectedProductViaWhatsApp = () => {
@@ -788,6 +797,15 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
   return (
     <>
+      {/* Toast Notification */}
+      <div
+        className={`fixed top-6 right-6 z-50 transition-all duration-500 ${showToast ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'} bg-black border border-[#d4af37] text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-2`}
+        style={{ minWidth: 220 }}
+        aria-live="polite"
+      >
+        <svg className="w-5 h-5 text-[#d4af37]" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+        <span>Item added to cart!</span>
+      </div>
       <div className="background-layer" aria-hidden="true"></div>
 
       <header
@@ -1050,6 +1068,7 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                         onClick={(event) => {
                           event.stopPropagation();
                           upsertCartItem(product.id, selectedVariant || defaultVariant);
+                          triggerToast();
                         }}
                       >
                         Add to Cart
