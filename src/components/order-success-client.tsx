@@ -38,31 +38,77 @@ export default function OrderSuccess() {
     }
     return null;
   }
+const handleWhatsApp = () => {
+    if (!orderData) return;
 
-  const handleWhatsApp = () => {
     const phone = "201131104759";
+    
+    // بناء الرسالة يدويًا لضمان الإيموجي والـ Bold
+    const messageText = `🛒 *New Order*
 
-    const message = encodeURIComponent(`
-Order #${orderData.orderId}
+📦 *Order Number:* #${orderData.orderId}
+💰 *Total Amount:* ${orderData.total} EGP
 
-Total: ${orderData.total} EGP
+👤 *Customer Details:*
+*Name:* ${orderData.name}
+*Phone:* ${orderData.phone}
+*Address:* ${orderData.address}
+*City:* ${orderData.city}`;
 
-Customer Details:
-Name: ${orderData.name}
-Phone: ${orderData.phone}
-Address: ${orderData.address}
-City: ${orderData.city}
-    `);
+    const encodedMessage = encodeURIComponent(messageText);
+    const finalUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`;
 
-    const appUrl = `whatsapp://send?phone=${phone}&text=${message}`;
-    const webUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
-
-    window.location.href = appUrl;
-
-    setTimeout(() => {
-      window.location.href = webUrl;
-    }, 800);
+    // الفتح المباشر
+    window.location.href = finalUrl;
   };
+// const handleWhatsApp = () => {
+//     const phone = "201131104759";
+
+//     // دي الرسالة المنظمة اللي إنت كنت عاوزها في الـ Checklist
+//     const message = encodeURIComponent(`🛒 *New Order*
+
+// 📦 *Order ID:* #${orderData.orderId}
+// 💰 *Total:* ${orderData.total} EGP
+
+// 👤 *Customer Details:*
+// *Name:* ${orderData.name}
+// *Phone:* ${orderData.phone}
+// *Address:* ${orderData.address}
+// *City:* ${orderData.city}`);
+
+//     // ده اللينك اللي اشتغل عند العميلة 100%
+//     const finalUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+//     window.location.href = finalUrl;
+
+//     setTimeout(() => {
+//       window.location.href = finalUrl;
+//     }, 800);
+//   };
+//   const handleWhatsApp = () => {
+//     const phone = "201131104759";
+
+//     const message = encodeURIComponent(`
+// Order #${orderData.orderId}
+
+// Total: ${orderData.total} EGP
+
+// Customer Details:
+// Name: ${orderData.name}
+// Phone: ${orderData.phone}
+// Address: ${orderData.address}
+// City: ${orderData.city}
+//     `);
+
+//     const appUrl = `whatsapp://send?phone=${phone}&text=${message}`;
+//     const webUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+//     window.location.href = appUrl;
+
+//     setTimeout(() => {
+//       window.location.href = webUrl;
+//     }, 800);
+//   };
 
   return (
     <main className="min-h-screen bg-[#0f100d] px-4 py-12 text-[#ece9df] flex items-center justify-center">

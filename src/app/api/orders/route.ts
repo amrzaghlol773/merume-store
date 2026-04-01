@@ -14,9 +14,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Cart is empty" }, { status: 400 });
     }
 
-    if (!/^\+201\d{9}$/.test(String(payload.phone || "").trim())) {
-      return NextResponse.json({ error: "Invalid phone format" }, { status: 400 });
-    }
+    // if (!/^\+201\d{9}$/.test(String(payload.phone || "").trim())) {
+    //   return NextResponse.json({ error: "Invalid phone format" }, { status: 400 });
+    // }
 
     if (payload.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email.trim())) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });

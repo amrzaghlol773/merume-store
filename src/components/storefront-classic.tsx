@@ -531,6 +531,11 @@ export default function Storefront() {
 
     setCheckoutError("");
     setSubmittingOrder(true);
+
+    // Safari on iOS may block window.open calls after await, so open a placeholder tab now.
+    const whatsappTab =
+      typeof window !== "undefined" ? window.open("", "_blank") : null;
+
     trackEvent("begin_checkout", {
       value: cartSubtotal,
       items_count: cart.length,
@@ -557,16 +562,37 @@ export default function Storefront() {
         }),
       });
 
-      const json = (await response.json()) as { whatsappUrl?: string; error?: string };
-      if (!response.ok || !json.whatsappUrl) {
-        throw new Error(json.error || "Failed to create order");
+      console.log("Order API status:", response.status, response.ok);
+      const json = (await response.json().catch(() => ({}))) as {
+        error?: string;
+        whatsappUrl?: string;
+      };
+      console.log("Order API response:", json);
+
+      if (!response.ok) {
+        throw new Error(json.error || "Failed to create order.");
       }
 
-      window.open(json.whatsappUrl, "_blank", "noopener");
-      trackEvent("purchase", {
-        value: cartSubtotal,
-        currency: "EGP",
-      });
+      // Only open WhatsApp if the backend provides a URL
+      if (json.whatsappUrl) {
+        if (whatsappTab && !whatsappTab.closed) {
+          whatsappTab.location.href = json.whatsappUrl;
+        } else {
+          window.location.assign(json.whatsappUrl);
+        }
+      } else if (whatsappTab && !whatsappTab.closed) {
+        whatsappTab.close();
+      }
+
+      try {
+        trackEvent("purchase", {
+          value: cartSubtotal,
+          currency: "EGP",
+        });
+      } catch (trackingError) {
+        console.error("Purchase tracking failed", trackingError);
+      }
+
       setCart([]);
       setCheckoutOpen(false);
       setCustomerName("");
@@ -576,6 +602,9 @@ export default function Storefront() {
       setDeliveryNotes("");
       setSelectedGovernorateKey("");
     } catch (error) {
+      if (whatsappTab && !whatsappTab.closed) {
+        whatsappTab.close();
+      }
       setCheckoutError(error instanceof Error ? error.message : "Failed to create order");
     } finally {
       setSubmittingOrder(false);
@@ -709,9 +738,9 @@ export default function Storefront() {
                 const isGiveaways = product.category === "Giveaways";
 
                 return (
-                    <article
-                      key={product.id}
-                      className="product-card"
+                  <article
+                    key={product.id}
+                    className="product-card"
                     role="button"
                     tabIndex={0}
                     onClick={() => openProductView(product)}
