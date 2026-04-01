@@ -110,6 +110,7 @@ const featuredTestimonials = [
 
 const INITIAL_ALL_PRODUCTS_COUNT = 8;
 const ALL_PRODUCTS_STEP = 8;
+const WHATSAPP_NUMBER = "201131104759";
 
 function formatPrice(price: number) {
   return `${price.toLocaleString("en-EG")} EGP`;
@@ -615,9 +616,10 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
     const unitPrice = getVariantByLabel(selectedProduct, selectedViewVariant)?.price || 0;
     const variantLabel = selectedViewVariant ? ` ${selectedViewVariant}` : "";
+    const message = `Hello Merume, I want to order ${selectedProduct.name}${variantLabel} x${selectedViewQuantity}. Unit price: ${unitPrice} EGP, Total: ${unitPrice * selectedViewQuantity} EGP.`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-    // const message = `Hello Merume, I want to order ${selectedProduct.name}${variantLabel} x${selectedViewQuantity}. Unit price: ${unitPrice} EGP, Total: ${unitPrice * selectedViewQuantity} EGP.`;
-    // window.open(`https://wa.me/201131104759?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    window.location.assign(whatsappUrl);
   };
 
   const orderCartViaWhatsApp = () => {
@@ -637,15 +639,17 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
         const lineTotal = (variant?.price || 0) * cartItem.qty;
         return `${index + 1}) ${product.name}${variantText} x${cartItem.qty} - ${lineTotal.toLocaleString("en-EG")} EGP`;
       })
-      .join("%0A");
+      .join("\n");
 
-    const message = `Hello Merume, I want to place a quick WhatsApp order:%0A%0A${lines}%0A%0ASubtotal: ${cartSubtotal.toLocaleString("en-EG")} EGP`;
+    const message = `Hello Merume, I want to place a quick WhatsApp order:\n\n${lines}\n\nSubtotal: ${cartSubtotal.toLocaleString("en-EG")} EGP`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     trackEvent("begin_checkout", {
       value: cartSubtotal,
       items_count: cart.length,
       checkout_mode: "whatsapp_quick",
     });
-    // window.open(`https://wa.me/201131104759?text=${message}`, "_blank", "noopener");
+
+    window.location.assign(whatsappUrl);
   };
 
   const submitProductReview = async (event: FormEvent<HTMLFormElement>) => {
@@ -744,6 +748,10 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
     setCheckoutError("");
     setSubmittingOrder(true);
+
+    // Safari on iOS may block new tabs opened after await, so open one synchronously.
+    const whatsappTab = typeof window !== "undefined" ? window.open("", "_blank") : null;
+
     trackEvent("begin_checkout", {
       value: cartSubtotal,
       items_count: cart.length,
@@ -770,12 +778,17 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
         }),
       });
 
-      const json = (await response.json()) as { whatsappUrl?: string; error?: string };
+      const json = (await response.json().catch(() => ({}))) as { whatsappUrl?: string; error?: string };
       if (!response.ok || !json.whatsappUrl) {
         throw new Error(json.error || "Failed to create order");
       }
 
-      window.open(json.whatsappUrl, "_blank", "noopener");
+      if (whatsappTab && !whatsappTab.closed) {
+        whatsappTab.location.href = json.whatsappUrl;
+      } else {
+        window.location.assign(json.whatsappUrl);
+      }
+
       trackEvent("purchase", {
         value: cartSubtotal,
         currency: "EGP",
@@ -789,6 +802,9 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
       setDeliveryNotes("");
       setSelectedGovernorateKey("");
     } catch (error) {
+      if (whatsappTab && !whatsappTab.closed) {
+        whatsappTab.close();
+      }
       setCheckoutError(error instanceof Error ? error.message : "Failed to create order");
     } finally {
       setSubmittingOrder(false);

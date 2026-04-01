@@ -38,13 +38,8 @@ export default function OrderSuccess() {
     }
     return null;
   }
-const handleWhatsApp = () => {
-    if (!orderData) return;
-
-    const phone = "201131104759";
-    
-    // بناء الرسالة يدويًا لضمان الإيموجي والـ Bold
-    const messageText = `🛒 *New Order*
+  const phone = "201131104759";
+  const messageText = `🛒 *New Order*
 
 📦 *Order Number:* #${orderData.orderId}
 💰 *Total Amount:* ${orderData.total} EGP
@@ -54,13 +49,7 @@ const handleWhatsApp = () => {
 *Phone:* ${orderData.phone}
 *Address:* ${orderData.address}
 *City:* ${orderData.city}`;
-
-    const encodedMessage = encodeURIComponent(messageText);
-    const finalUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`;
-
-    // الفتح المباشر
-    window.location.href = finalUrl;
-  };
+  const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(messageText)}`;
 // const handleWhatsApp = () => {
 //     const phone = "201131104759";
 
@@ -133,12 +122,13 @@ const handleWhatsApp = () => {
           </div>
         </div>
 
-        <button
-          onClick={handleWhatsApp}
+        <a
+          href={whatsappUrl}
           className="mt-8 w-full rounded-xl bg-[#25D366] py-4 text-lg font-bold text-white shadow-lg active:scale-95 transition-transform"
+          rel="noopener noreferrer"
         >
           Confirm via WhatsApp
-        </button>
+        </a>
 
         <Link
           href="/"
