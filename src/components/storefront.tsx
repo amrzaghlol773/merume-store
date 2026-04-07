@@ -858,16 +858,6 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
 
           <div className="flex items-center gap-3">
             <button
-              onClick={onToggleThemeAction}
-              type="button"
-              className="theme-toggle-btn"
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {theme === "dark" ? "Light" : "Dark"}
-            </button>
-
-            <button
               onClick={() => setCartOpen(true)}
               id="cart-toggle"
               type="button"
@@ -1476,10 +1466,6 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
                 <label className="block">
                   <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.12em] text-charcoal/70">Phone</span>
                   <input id="customer-phone" type="tel" required value={customerPhone} onChange={(event) => setCustomerPhone(event.target.value)} className="w-full rounded-lg border border-black/20 bg-white px-4 py-3 outline-none focus:border-luxuryGold" />
-                </label>
-                <label className="block">
-                  <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.12em] text-charcoal/70">Zip Code</span>
-                  <input type="text" className="w-full rounded-lg border border-black/20 bg-white px-4 py-3 outline-none focus:border-luxuryGold" />
                 </label>
               </div>
 
