@@ -80,6 +80,8 @@ export default function AdminProductsPage() {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
   const [form, setForm] = useState<ProductForm>(EMPTY_FORM);
+  const [primaryImageFile, setPrimaryImageFile] = useState<File | null>(null);
+  const [galleryImageFiles, setGalleryImageFiles] = useState<File[]>([]);
   const [toast, setToast] = useState<Toast | null>(null);
 
   const editingProduct = useMemo(
@@ -159,6 +161,8 @@ export default function AdminProductsPage() {
 
   const resetForm = () => {
     setForm(EMPTY_FORM);
+    setPrimaryImageFile(null);
+    setGalleryImageFiles([]);
     setEditingId(null);
   };
 
@@ -180,23 +184,37 @@ export default function AdminProductsPage() {
         isDefault: variant.isDefault,
       })),
     });
+    setPrimaryImageFile(null);
+    setGalleryImageFiles([]);
   };
+
+  const fileToDataUrl = (file: File) =>
+    new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.onerror = () => reject(new Error("Failed to read image file"));
+      reader.readAsDataURL(file);
+    });
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSaving(true);
 
     try {
+      const primaryImageValue = primaryImageFile ? await fileToDataUrl(primaryImageFile) : form.primaryImage;
+      const galleryFromFiles = await Promise.all(galleryImageFiles.map((file) => fileToDataUrl(file)));
+      const galleryFromText = form.galleryImagesText
+        .split("\n")
+        .map((url) => url.trim())
+        .filter(Boolean);
+
       const payload = {
         name: form.name,
         slug: form.slug,
         description: form.description,
         categoryId: Number(form.categoryId),
-        primaryImage: form.primaryImage,
-        galleryImages: form.galleryImagesText
-          .split("\n")
-          .map((url) => url.trim())
-          .filter(Boolean),
+        primaryImage: primaryImageValue,
+        galleryImages: [...galleryFromText, ...galleryFromFiles],
         variants: form.variants.map((variant, index) => ({
           label: variant.label,
           price: Number(variant.price),
@@ -422,23 +440,41 @@ export default function AdminProductsPage() {
               </label>
 
               <label className="block sm:col-span-2">
-                <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.12em] text-black/60">Primary Image URL</span>
+                <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.12em] text-black/60">Primary Image</span>
                 <input
-                  required
+                  type="file"
+                  accept="image/*"
+                  onChange={(event) => setPrimaryImageFile(event.target.files?.[0] || null)}
+                  className="w-full rounded-lg border border-black/20 px-4 py-2 text-sm outline-none file:mr-3 file:rounded-md file:border-0 file:bg-black file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white"
+                />
+                <p className="mt-1 text-xs text-black/50">Choose photo من جهازك. أو سيب الصورة الحالية وقت التعديل.</p>
+                <input
+                  required={!primaryImageFile}
                   value={form.primaryImage}
                   onChange={(event) => setForm((previous) => ({ ...previous, primaryImage: event.target.value }))}
-                  className="w-full rounded-lg border border-black/20 px-4 py-3 text-sm outline-none focus:border-black"
+                  placeholder="Or paste image URL"
+                  className="mt-2 w-full rounded-lg border border-black/20 px-4 py-3 text-sm outline-none focus:border-black"
                 />
-                <p className="mt-1 text-xs text-black/50">Use `/image.jpg` for local images in `public/` or full `https://...` links. Avoid Windows paths like `D:\...`.</p>
               </label>
             </div>
 
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.12em] text-black/60">Additional Image URLs (one per line)</span>
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.12em] text-black/60">Additional Images</span>
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={(event) => setGalleryImageFiles(Array.from(event.target.files || []))}
+                className="mb-2 w-full rounded-lg border border-black/20 px-4 py-2 text-sm outline-none file:mr-3 file:rounded-md file:border-0 file:bg-black file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white"
+              />
+              {galleryImageFiles.length ? (
+                <p className="mb-2 text-xs text-black/60">{galleryImageFiles.length} image(s) selected from device.</p>
+              ) : null}
               <textarea
                 rows={3}
                 value={form.galleryImagesText}
                 onChange={(event) => setForm((previous) => ({ ...previous, galleryImagesText: event.target.value }))}
+                placeholder="Or paste additional image URLs (one per line)"
                 className="w-full rounded-lg border border-black/20 px-4 py-3 text-sm outline-none focus:border-black"
               />
             </label>

@@ -1,8 +1,5 @@
-import { randomUUID } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
-
 import { NextResponse } from "next/server";
+import { uploadImageToCloudinary } from "@/lib/server/cloudinary";
 
 const MAX_FILE_SIZE = 3 * 1024 * 1024;
 const ALLOWED_MIME = new Set(["image/jpeg", "image/png", "image/webp"]);
@@ -17,6 +14,13 @@ function extensionFromMime(mime: string) {
   }
 
   return "jpg";
+}
+
+function toDataUri(file: File) {
+  return file.arrayBuffer().then((arrayBuffer) => {
+    const base64 = Buffer.from(arrayBuffer).toString("base64");
+    return `data:${file.type};base64,${base64}`;
+  });
 }
 
 export async function POST(request: Request) {
@@ -37,18 +41,12 @@ export async function POST(request: Request) {
     }
 
     const extension = extensionFromMime(image.type);
-    const fileName = `${Date.now()}-${randomUUID()}.${extension}`;
-    const relativeDir = path.join("uploads", "reviews");
-    const outputDir = path.join(process.cwd(), "public", relativeDir);
-    const outputPath = path.join(outputDir, fileName);
-
-    await mkdir(outputDir, { recursive: true });
-
-    const arrayBuffer = await image.arrayBuffer();
-    await writeFile(outputPath, Buffer.from(arrayBuffer));
+    const dataUri = await toDataUri(image);
+    const url = await uploadImageToCloudinary(dataUri, "merume/reviews");
 
     return NextResponse.json({
-      url: `/${relativeDir.replace(/\\/g, "/")}/${fileName}`,
+      url,
+      extension,
     });
   } catch (error) {
     console.error("POST /api/reviews/upload failed", error);

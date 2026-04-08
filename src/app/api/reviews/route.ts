@@ -13,15 +13,7 @@ function normalizeImageUrl(rawUrl: string) {
     return value;
   }
 
-  if (value.startsWith("/")) {
-    return value;
-  }
-
-  if (/^[a-zA-Z]:\//.test(value)) {
-    return "";
-  }
-
-  return `/${value.replace(/^\.?\//, "")}`;
+  return "";
 }
 
 function sanitizeName(raw: string) {

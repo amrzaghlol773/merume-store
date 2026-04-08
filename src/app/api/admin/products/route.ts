@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 
 import { prisma } from "@/lib/prisma";
+import {
+  deleteCloudinaryImagesByUrls,
+  isBase64Image,
+  uploadImageToCloudinary,
+} from "@/lib/server/cloudinary";
 
 type ProductPayload = {
   name?: string;
@@ -23,16 +28,22 @@ function normalizeImageUrl(rawUrl: string) {
     return value;
   }
 
-  if (value.startsWith("/")) {
-    return value;
-  }
+  return "";
+}
 
-  // Reject local absolute file-system paths from Windows.
-  if (/^[a-zA-Z]:\//.test(value)) {
+async function resolveImageInput(rawUrl: string, uploadedInRequest: string[]) {
+  const value = String(rawUrl || "").trim();
+  if (!value) {
     return "";
   }
 
-  return `/${value.replace(/^\.?\//, "")}`;
+  if (isBase64Image(value)) {
+    const uploadedUrl = await uploadImageToCloudinary(value, "merume/products");
+    uploadedInRequest.push(uploadedUrl);
+    return uploadedUrl;
+  }
+
+  return normalizeImageUrl(value);
 }
 
 function toSlug(value: string) {
@@ -90,14 +101,16 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const uploadedInRequest: string[] = [];
+
   try {
     const body = (await request.json()) as ProductPayload;
 
     const name = body.name?.trim() || "";
     const description = body.description?.trim() || "";
     const categoryId = Number(body.categoryId);
-    const primaryImage = normalizeImageUrl(body.primaryImage || "");
-    const galleryImages = (body.galleryImages || []).map((url) => normalizeImageUrl(url)).filter(Boolean);
+    const rawPrimaryImage = String(body.primaryImage || "").trim();
+    const rawGalleryImages = (body.galleryImages || []).map((url) => String(url || "").trim()).filter(Boolean);
     const variants = (body.variants || [])
       .map((variant) => ({
         label: variant.label?.trim(),
@@ -110,7 +123,7 @@ export async function POST(request: Request) {
       isDefault: boolean;
     }>;
 
-    if (!name || !description || !primaryImage || !Number.isFinite(categoryId) || !variants.length) {
+    if (!name || !description || !rawPrimaryImage || !Number.isFinite(categoryId) || !variants.length) {
       return NextResponse.json({ error: "Missing required product fields" }, { status: 400 });
     }
 
@@ -126,6 +139,15 @@ export async function POST(request: Request) {
       ...variant,
       isDefault: hasDefault ? variant.isDefault : index === 0,
     }));
+
+    const primaryImage = await resolveImageInput(rawPrimaryImage, uploadedInRequest);
+    const galleryImages = (
+      await Promise.all(rawGalleryImages.map((url) => resolveImageInput(url, uploadedInRequest)))
+    ).filter(Boolean);
+
+    if (!primaryImage) {
+      return NextResponse.json({ error: "Primary image is required" }, { status: 400 });
+    }
 
     const images = [primaryImage, ...galleryImages];
 
@@ -156,6 +178,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ product }, { status: 201 });
   } catch (error) {
+    await deleteCloudinaryImagesByUrls(uploadedInRequest);
     console.error("POST /api/admin/products failed", error);
 
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {

@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 
 import { prisma } from "@/lib/prisma";
+import {
+  deleteCloudinaryImagesByUrls,
+  isBase64Image,
+  uploadImageToCloudinary,
+} from "@/lib/server/cloudinary";
 
 type ProductPayload = {
   name?: string;
@@ -23,16 +28,22 @@ function normalizeImageUrl(rawUrl: string) {
     return value;
   }
 
-  if (value.startsWith("/")) {
-    return value;
-  }
+  return "";
+}
 
-  // Reject local absolute file-system paths from Windows.
-  if (/^[a-zA-Z]:\//.test(value)) {
+async function resolveImageInput(rawUrl: string, uploadedInRequest: string[]) {
+  const value = String(rawUrl || "").trim();
+  if (!value) {
     return "";
   }
 
-  return `/${value.replace(/^\.?\//, "")}`;
+  if (isBase64Image(value)) {
+    const uploadedUrl = await uploadImageToCloudinary(value, "merume/products");
+    uploadedInRequest.push(uploadedUrl);
+    return uploadedUrl;
+  }
+
+  return normalizeImageUrl(value);
 }
 
 function toSlug(value: string) {
@@ -60,6 +71,8 @@ async function resolveUniqueSlug(baseSlug: string, ignoreProductId?: number) {
 }
 
 export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) {
+  const uploadedInRequest: string[] = [];
+
   try {
     const { id } = await context.params;
     const productId = Number(id);
@@ -73,8 +86,8 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
     const name = body.name?.trim() || "";
     const description = body.description?.trim() || "";
     const categoryId = Number(body.categoryId);
-    const primaryImage = normalizeImageUrl(body.primaryImage || "");
-    const galleryImages = (body.galleryImages || []).map((url) => normalizeImageUrl(url)).filter(Boolean);
+    const rawPrimaryImage = String(body.primaryImage || "").trim();
+    const rawGalleryImages = (body.galleryImages || []).map((url) => String(url || "").trim()).filter(Boolean);
     const variants = (body.variants || [])
       .map((variant) => ({
         label: variant.label?.trim(),
@@ -87,11 +100,16 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
       isDefault: boolean;
     }>;
 
-    if (!name || !description || !primaryImage || !Number.isFinite(categoryId) || !variants.length) {
+    if (!name || !description || !rawPrimaryImage || !Number.isFinite(categoryId) || !variants.length) {
       return NextResponse.json({ error: "Missing required product fields" }, { status: 400 });
     }
 
-    const existingProduct = await prisma.product.findUnique({ where: { id: productId } });
+    const existingProduct = await prisma.product.findUnique({
+      where: { id: productId },
+      include: {
+        images: true,
+      },
+    });
     if (!existingProduct) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
@@ -108,6 +126,15 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
       ...variant,
       isDefault: hasDefault ? variant.isDefault : index === 0,
     }));
+
+    const primaryImage = await resolveImageInput(rawPrimaryImage, uploadedInRequest);
+    const galleryImages = (
+      await Promise.all(rawGalleryImages.map((url) => resolveImageInput(url, uploadedInRequest)))
+    ).filter(Boolean);
+
+    if (!primaryImage) {
+      return NextResponse.json({ error: "Primary image is required" }, { status: 400 });
+    }
 
     const images = [primaryImage, ...galleryImages];
 
@@ -142,8 +169,14 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
       });
     });
 
+    const oldUrls = existingProduct.images.map((image) => image.url);
+    const nextUrls = new Set(images);
+    const removedUrls = oldUrls.filter((url) => !nextUrls.has(url));
+    await deleteCloudinaryImagesByUrls(removedUrls);
+
     return NextResponse.json({ product });
   } catch (error) {
+    await deleteCloudinaryImagesByUrls(uploadedInRequest);
     console.error("PATCH /api/admin/products/[id] failed", error);
 
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
@@ -163,7 +196,19 @@ export async function DELETE(_request: Request, context: { params: Promise<{ id:
       return NextResponse.json({ error: "Invalid product id" }, { status: 400 });
     }
 
+    const product = await prisma.product.findUnique({
+      where: { id: productId },
+      include: {
+        images: true,
+      },
+    });
+
+    if (!product) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
+
     await prisma.product.delete({ where: { id: productId } });
+    await deleteCloudinaryImagesByUrls(product.images.map((image) => image.url));
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("DELETE /api/admin/products/[id] failed", error);
