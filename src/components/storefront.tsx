@@ -366,6 +366,10 @@ export default function Storefront({ theme = "dark", onToggleThemeAction }: Stor
       setProductsError("");
       try {
         const response = await fetch("/api/products", { cache: "no-store" });
+        const contentType = response.headers.get("content-type") || "";
+        if (!contentType.includes("application/json")) {
+          throw new Error("Server error while loading products. Please refresh the page.");
+        }
         const json = (await response.json()) as { products?: Product[]; error?: string };
         if (!response.ok || !json.products) {
           throw new Error(json.error || "Failed to load products");

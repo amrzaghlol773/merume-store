@@ -93,9 +93,20 @@ export default function CheckoutPageClient() {
       setLoading(true);
       try {
         const response = await fetch("/api/products");
-        const json = await response.json();
-        if (response.ok) setProducts(json.products);
-      } catch (e) { setError("Failed to load products"); }
+        const contentType = response.headers.get("content-type") || "";
+        if (!contentType.includes("application/json")) {
+          throw new Error("Server error while loading products. Please refresh the page.");
+        }
+
+        const json = (await response.json()) as { products?: Product[]; error?: string };
+        if (!response.ok || !json.products) {
+          throw new Error(json.error || "Failed to load products");
+        }
+
+        setProducts(json.products);
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Failed to load products");
+      }
       finally { setLoading(false); }
     };
     loadProducts();
